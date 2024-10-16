@@ -1,0 +1,24 @@
+{
+  "name": "cleanblog",
+  "version": "1.0.0",
+  "description": "clean blog page",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "keywords": [
+    "clean",
+    "blog",
+    "page"
+  ],
+  "author": "Arif Yılmaz",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.1.7",
+    "prettier": "3.3.3"
+  },
+  "dependencies": {
+    "express": "^4.21.1"
+  }
+}
