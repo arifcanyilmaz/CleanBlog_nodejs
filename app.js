@@ -22,6 +22,7 @@ app.use(express.urlencoded({extended:true}))
 app.use(express.json())
 
 //ROUTER
+//Hepsini Anasayfaya gönderir
 app.get("/", async (req, res) => {
   const blogItem = await Blog.find({})
 
@@ -30,22 +31,25 @@ app.get("/", async (req, res) => {
   });
 });
 
+//about sayfası
 app.get("/about", (req, res) => {
   res.render("about");
 });
 
+//her fotoğrafın tekil sayfası
 app.get("/post/:id", async (req, res) => {
-  const postId = req.params.id
-  const postItem = await Blog.findById(postId)
-  res.render('post', {
-    postItem
+  const postBlogItem = await Blog.findById(req.params.id)
+  res.render("post", {
+    postBlogItem
   })
 });
 
+// addpost sayfası
 app.get("/add_post", (req, res) => {
   res.render("add_post");
 });
 
+// girilen verileri yönlendirdiğimiz yer
 app.post("/blogs", async (req,res) => {
   await Blog.create(req.body)
   res.redirect('/')
