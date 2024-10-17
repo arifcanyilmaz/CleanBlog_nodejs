@@ -1,15 +1,26 @@
+const ejs = require('ejs')
 const express = require('express');
 const app = express();
 
-app.get('/', (req, res) => {
-  const photo = {
-    id: 1,
-    name: 'Photo name',
-    desc: 'Photo description',
-  };
-  res.send(photo);
-});
+//TEMPLATE ENGINE
+app.set("view engine", "ejs")
 
+// MIDDLEWARES
+app.use(express.static('public'))
+
+//ROUTER
+app.get('/', (req, res) => {
+  res.render("index")
+});
+app.get('/about', (req, res) => {
+  res.render("about")
+});
+app.get('/post', (req, res) => {
+  res.render("post")
+});
+app.get('/add_post', (req, res) => {
+  res.render("add_post")
+});
 
 
 const port = 3000;
