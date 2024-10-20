@@ -49,6 +49,13 @@ blockquote {
   margin-top: 60px;
 }
 
+.tm-share-box { 
+  font-size: 1.4rem; 
+  padding: 3rem;
+}
+
+.tm-bg-gray { background-color: #F4F4F4; }
+
 .caption {
   font-size: 14px;
   font-style: italic;
