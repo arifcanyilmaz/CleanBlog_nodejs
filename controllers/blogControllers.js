@@ -1,10 +1,18 @@
 const Blog = require("../models/Blog"); //photo modelimizi import ettik.
 
 exports.getAllPosts = async (req, res) => {
-  const blogItem = await Blog.find({}).sort("-dateCreated");
+  const page = req.query.page || 1;
+  const postsPerPage = 3;
+  const totalPosts = await Blog.find({}).countDocuments();
+  const blogItem = await Blog.find({})
+  .sort("-dateCreated")
+  .skip((page-1)*postsPerPage)
+  .limit(postsPerPage)
 
   res.render("index", {
-    blogItem,
+    blogItem: blogItem,
+    current: page,
+    pages: Math.ceil(totalPosts / postsPerPage)
   });
 };
 

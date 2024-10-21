@@ -415,3 +415,36 @@ footer .copyright {
   font-size: 16px;
   padding: 25px 35px;
 }
+
+.nav-item { margin: 20px 40px; }
+
+.tm-nav-link {
+  color: white;
+  font-size: 1.4rem;    
+}
+
+#tm-main-nav .nav-item .nav-link { border-bottom: 1px solid transparent; }
+
+#tm-main-nav .nav-item.active .nav-link,
+#tm-main-nav .nav-item:hover .nav-link {
+  border-bottom: 1px solid white;
+  color: white;
+}
+
+
+.tm-paging-link {
+  background-color: #F4F4F4;
+  margin-right: 12px;
+  font-size: 1.5rem;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-item.active > .tm-paging-link,
+.nav-item:hover > .tm-paging-link {
+  background-color: #CCC;
+  color: #666666;
+}
