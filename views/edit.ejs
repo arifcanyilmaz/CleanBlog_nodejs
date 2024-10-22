@@ -1,0 +1,43 @@
+<!-- Header PARTIALS -->
+<%- include('partials/_header') -%>
+
+<body>
+  <!-- Page Header PARTIALS -->
+  <%- include('partials/_navigation') -%>
+
+  <!-- Main Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <form method="POST" action="/post/<%= postBlogItem._id %>?_method=PUT">    <!-- form start -->
+          <div class="control-group">
+            <div class="form-group floating-label-form-group controls">
+              <h2>Post Edit</h2>
+              <label>Post Title</label>
+              <input type="text" name="title" class="form-control" id="title" placeholder="Title" value="<%= postBlogItem.title %>" required data-validation-required-message="Please enter your name.">
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+          <div class="control-group">
+            <div class="form-group floating-label-form-group controls">
+              <label>Post Detail</label>
+              <textarea rows="5" name="description" class="form-control" id="description" placeholder="Description" required data-validation-required-message="Please enter a message."> <%= postBlogItem.description %></textarea>
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+          <br>
+          <div id="success"><button type="submit" class="btn btn-primary" id="sendMessageButton">Update</button></div>
+
+        </form>   <!-- form end -->
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- Subscribe form and footer links PARTIALS -->
+  <%- include('partials/_footer') -%>
+
+</body>
+
+</html>

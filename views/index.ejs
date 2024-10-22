@@ -1,0 +1,60 @@
+<!-- Header PARTIALS -->
+<%- include('partials/_header') -%>
+
+<body>
+
+  <!-- Navigation PARTIALS -->
+  <%- include('partials/_navigation') -%>
+
+  <!-- Main Content -->
+  <div class="container">
+    <div class="row">
+      
+      <div class="col-lg-8 col-md-10 mx-auto">
+
+        <% for(let i = 0; i < blogItem.length; i++) { %>
+        <div class="post-preview">
+          <a href="/post/<%= blogItem[i]._id %>">
+            <h2 class="post-title">
+              <%= blogItem[i].title %>
+            </h2>
+            <h3 class="post-subtitle">
+              <%= blogItem[i].description %>
+            </h3>
+          </a>
+          <p class="post-meta"> 
+             <%= blogItem[i].dateCreated %>
+          </p>
+        </div>
+        <hr>
+
+        <% } %>
+        <!-- Pager -->
+        <div>
+          <% if(pages > 0) { %>
+              <ul class="nav tm-paging-links">
+                  <% for(i=1; i <= pages; i++) { %>
+                      <% if(i == current) { %>
+                          <li class="nav-item active"><a href="/?page=<%= i %>" class="nav-link tm-paging-link"><%= i %></a></li>
+                      <% } else if(i < pages) { %>
+                          <li class="nav-item"><a href="/?page=<%= i %>" class="nav-link tm-paging-link"><%= i %></a></li>
+                      <% } else{%>
+                          <li class="nav-item"><a href="/?page=<%= i %>" class="nav-link tm-paging-link">></a></li>
+                      <% } %>
+                  <% } %>
+              </ul>
+          <%}%>
+      </div>
+      </div>
+
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- Subscribe form and footer links PARTIALS -->
+  <%- include('partials/_footer') -%>
+
+</body>
+
+</html>

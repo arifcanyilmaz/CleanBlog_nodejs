@@ -1,0 +1,44 @@
+<!-- Header PARTIALS -->
+<%- include('partials/_header') -%>
+
+  <body>
+    <!-- Page Header PARTIALS -->
+    <%- include('partials/_navigation') -%>
+
+      <!-- Post Content -->
+      <article>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+
+              <div class="post-heading">
+                <h1>
+                  <%= postBlogItem.title %>
+                </h1>
+                <h4 class="subheading">
+                  <%= postBlogItem.description %>
+                </h4>
+                <span class="meta"> <b>Posted by on</b>
+                  <%= postBlogItem.dateCreated %>
+                </span>
+              </div>
+                <div class="tm-share-box tm-bg-gray mt-5">
+                <div class="clearfix">
+                  <a class="btn btn-primary float-right" href="/post/edit/<%= postBlogItem._id %>">Update Post</a>
+                </div>
+                <div class="clearfix mt-3">
+                  <a class="btn btn-primary float-right" href="/post/<%= postBlogItem._id %>?_method=DELETE"
+                  onclick="return confirm('Are you sure?')">Delete Post</a>
+                </div>
+             </div>
+            </div>
+          </div>
+      </article>
+      <hr>
+
+      <!-- Subscribe form and footer links PARTIALS -->
+      <%- include('partials/_footer') -%>
+
+  </body>
+
+  </html>
