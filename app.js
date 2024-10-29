@@ -5,13 +5,13 @@ const express = require("express"); // Express (NPM)
 const mongoose = require('mongoose') // Mongoose (NPM)
 const methodOverride = require('method-override'); // Express-method-override (NPM)
 
-const blogControllers = require('./controllers/blogcontrollers'); //blog controllersımızı import ettik.
-const pageControllers = require('./controllers/pagecontrollers'); //page controllersımızı import ettik.
+const blogControllers = require('./controllers/blogControllers'); //blog controllersımızı import ettik.
+const pageControllers = require('./controllers/pageControllers'); //page controllersımızı import ettik.
 
 const app = express(); // Express (NPM)
 
 // connect DB
-mongoose.connect('mongodb://localhost/cleanblog-db')
+mongoose.connect('mongodb://host.docker.internal/cleanblog-db')
 
 //TEMPLATE ENGINE
 app.set("view engine", "ejs");
